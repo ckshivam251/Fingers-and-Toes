@@ -5,9 +5,9 @@ $(document).ready(function() {
 
 // Starts the timer when the button is pressed
 
-    $('#start').on('click', function () {
+    $("#start").on('click', function () {
         //The number inputed by the user is a whole number.
-        var num = $("#number-input").val();
+        var num = $('#number-input').val();
 
         if ((parseFloat(num) === parseInt(num))) {
             console.log('The input number');
@@ -20,27 +20,31 @@ $(document).ready(function() {
             //Display the error alert!
 
             alert("Opps!! You entered the wrong number. Please enter whole number.!!");
+            // Reset every thing.
+            removeIntervals();// Will Remove all old Intervals
+            document.getElementById('number-input').value = "";
+            document.getElementById('displayed-number').innerHTML = "0";
         }
     });
 
 
 // Restart Button.
 
-    $('#restart').on('click', function () {
+    $("#restart").on('click', function () {
         var num = $("#number-input").val();
         document.getElementById('displayed-number').innerHTML = "0"; // start from 0
         countUp(num);
     });
 
 // Reset Button.
-    $('#reset').on('click', function () {
+    $("#reset").on('click', function () {
         removeIntervals();// Will Remove all old Intervals
         document.getElementById('number-input').value = "";
         document.getElementById('displayed-number').innerHTML = "0";
-        $('#fingers-block').css("color", "#555");
-        $('#toes-block').css("color", "#555");
-        $('#toes-block').css("background-color", "transparent");
-        $('#fingers-block').css("background-color", "transparent");
+        $("#fingers-block").css("color", "#555");
+        $("#toes-block").css("color", "#555");
+        $("#toes-block").css("background-color", "transparent");
+        $("#fingers-block").css("background-color", "transparent");
     });
 
 //  RemoveInervals function
@@ -59,6 +63,7 @@ $(document).ready(function() {
         removeIntervals();
         var startingNumer = 1;
         var displayedNumber = document.getElementById('displayed-number');
+        //A function to be executed every delay milliseconds. We need 1sec delay so we will use 1000 milliseconds.
         var id = setInterval(function()
         {
             console.log(id);
@@ -71,36 +76,70 @@ $(document).ready(function() {
                 // will check if it is divisible  by 5 and 3.
                 if (x % 5 === 0 && x % 3 === 0)
                 {
-                    $('#fingers-block').css("background-color", "#5f7db3");
-                    $('#fingers-block').css("color","white");
-                    $('#toes-block').css("background-color","#5f7db3");
-                    $('#toes-block').css("color","white");
+                    $("#fingers-block").css("background-color", "#5f7db3");
+                    $("#fingers-block").css("color","white");
+                    $("#toes-block").css("background-color","#5f7db3");
+                    $("#toes-block").css("color","white");
                     displayedNumber.innerHTML = x.toString();
                 }
                 // If condition for Divisible 5
                 else if (x % 5 === 0)
                 {
-                    $('#fingers-block').css("background-color", "transparent");
-                    $('#fingers-block').css("color", "#555");
-                    $('#toes-block').css("background-color" ,"#5f7db3");
-                    $('#toes-block').css("color","white");
+                    $("#fingers-block").css("background-color", "transparent");
+                    $("#fingers-block").css("color", "#555");
+                    $("#toes-block").css("background-color" ,"#5f7db3");
+                    $("#toes-block").css("color","white");
                     displayedNumber.innerHTML = x.toString();
                 }
                 // If condition for Divisible 3
                 else if (x % 3 === 0) {
-                    $('#toes-block').css("background-color", "transparent");
-                    $('#toes-block').css("color","#555");
-                    $('#fingers-block').css("background-color", "#5f7db3");
-                    $('#fingers-block').css("color","white");
+                    $("#toes-block").css("background-color", "transparent");
+                    $("#toes-block").css("color","#555");
+                    $("#fingers-block").css("background-color", "#5f7db3");
+                    $("#fingers-block").css("color","white");
                     displayedNumber.innerHTML = x.toString();
                 }
                 else {
-                    $('#toes-block').css("color","#555");
-                    $('#fingers-block').css("color","#555");
-                    $('#toes-block').css("background-color", "transparent");
-                    $('#fingers-block').css("background-color", "transparent");
+                    $("#toes-block").css("color","#555");
+                    $("#fingers-block").css("color","#555");
+                    $("#toes-block").css("background-color", "transparent");
+                    $("#fingers-block").css("background-color", "transparent");
                     displayedNumber.innerHTML = x.toString();
                 }
             }
-
-            
+            // Condition for Inputnumber is same as X.
+            if (x == inputNumber) {
+                if (x % 5 === 0 && x % 3 === 0) {
+                    $("#fingers-block").css("background-color", "#5f7db3");
+                    $("#fingers-block").css("color","white");
+                    $("#toes-block").css("background-color", "#5f7db3");
+                    $("#toes-block").css("color","white");
+                    displayedNumber.innerHTML = x.toString();
+                }
+                else if (x % 5 === 0) {
+                    $("#fingers-block").css("background-color","transparent");
+                    $("#fingers-block").css("color","#555");
+                    $("#toes-block").css("background-color", "#5f7db3");
+                    $("#toes-block").css("color","white");
+                    displayedNumber.innerHTML = x.toString();
+                }
+                else if (x % 3 === 0) {
+                    $("#toes-block").css("background-color","transparent");
+                    $("#toes-block").css("color","#555");
+                    $("#fingers-block").css("background-color", "#5f7db3");
+                    $("#fingers-block").css("color","white");
+                    displayedNumber.innerHTML = x.toString();
+                }
+                else {
+                    $("#fingers-block").css("color","#555");
+                    $("#toes-block").css("color","#555");
+                    $("#toes-block").css("background-color","transparent");
+                    $("#fingers-block").css("background-color","transparent");
+                    displayedNumber.innerHTML = x.toString();
+                }
+                displayedNumber.innerHTML = x.toString();
+                clearInterval(id);
+            }
+        }, 1000);
+    }
+});
