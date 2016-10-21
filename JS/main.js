@@ -65,6 +65,7 @@ $(document).ready(function() {
             console.log('interval called');
             var x = startingNumer++;
             console.log(x);
+            // If Condition for  x is lessthen Inputnumber
             if (x < inputNumber)
             {
                 // will check if it is divisible  by 5 and 3.
@@ -76,3 +77,30 @@ $(document).ready(function() {
                     $('#toes-block').css("color","white");
                     displayedNumber.innerHTML = x.toString();
                 }
+                // If condition for Divisible 5
+                else if (x % 5 === 0)
+                {
+                    $('#fingers-block').css("background-color", "transparent");
+                    $('#fingers-block').css("color", "#555");
+                    $('#toes-block').css("background-color" ,"#5f7db3");
+                    $('#toes-block').css("color","white");
+                    displayedNumber.innerHTML = x.toString();
+                }
+                // If condition for Divisible 3
+                else if (x % 3 === 0) {
+                    $('#toes-block').css("background-color", "transparent");
+                    $('#toes-block').css("color","#555");
+                    $('#fingers-block').css("background-color", "#5f7db3");
+                    $('#fingers-block').css("color","white");
+                    displayedNumber.innerHTML = x.toString();
+                }
+                else {
+                    $('#toes-block').css("color","#555");
+                    $('#fingers-block').css("color","#555");
+                    $('#toes-block').css("background-color", "transparent");
+                    $('#fingers-block').css("background-color", "transparent");
+                    displayedNumber.innerHTML = x.toString();
+                }
+            }
+
+            
