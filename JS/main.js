@@ -49,6 +49,16 @@ $(document).ready(function()
         $('#fingers-block').css("background-color", "transparent");
     });
 
-    
+//  RemoveInervals function
+
+    function removeIntervals()
+    {
+        // It will remove all old intervals to restart
+        for (var i = 1; i < 99999; i++)
+        {
+            clearInterval(i);
+        }
+    }
+
 }
 
