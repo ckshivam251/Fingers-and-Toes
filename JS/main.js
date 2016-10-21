@@ -1,25 +1,21 @@
 /**
  * Created by ck on 10/20/2016.
  */
-$(document).ready(function()
-{
+$(document).ready(function() {
 
 // Starts the timer when the button is pressed
 
-    $('#start').on('click',function()
-    {
+    $('#start').on('click', function () {
         //The number inputed by the user is a whole number.
         var num = $("#number-input").val();
 
-        if((parseFloat(num) === parseInt(num)))
-        {
+        if ((parseFloat(num) === parseInt(num))) {
             console.log('The input number');
             console.log(num);
             countUp(num); //Function for count up incrementally
         }
 
-        else
-        {
+        else {
             //The number inputed by the user is not a whole number.
             //Display the error alert!
 
@@ -30,35 +26,43 @@ $(document).ready(function()
 
 // Restart Button.
 
-    $('#restart').on('click', function ()
-    {
+    $('#restart').on('click', function () {
         var num = $("#number-input").val();
         document.getElementById('displayed-number').innerHTML = "0"; // start from 0
         countUp(num);
     });
 
 // Reset Button.
-    $('#reset').on('click',function ()
-    {
+    $('#reset').on('click', function () {
         removeIntervals();// Will Remove all old Intervals
         document.getElementById('number-input').value = "";
         document.getElementById('displayed-number').innerHTML = "0";
         $('#fingers-block').css("color", "#555");
-        $('#toes-block').css("color","#555");
+        $('#toes-block').css("color", "#555");
         $('#toes-block').css("background-color", "transparent");
         $('#fingers-block').css("background-color", "transparent");
     });
 
 //  RemoveInervals function
 
-    function removeIntervals()
-    {
+    function removeIntervals() {
         // It will remove all old intervals to restart
-        for (var i = 1; i < 99999; i++)
-        {
+        for (var i = 1; i < 99999; i++) {
             clearInterval(i);
         }
     }
 
-}
+// Main function for counting and selecting Fingers & Toes
+
+    function countUp(inputNumber)
+    {
+        removeIntervals();
+        var startingNumer = 1;
+        var displayedNumber = document.getElementById('displayed-number');
+        var id = setInterval(function()
+        {
+            console.log(id);
+            console.log('interval called');
+            var x = startingNumer++;
+            console.log(x);
 
