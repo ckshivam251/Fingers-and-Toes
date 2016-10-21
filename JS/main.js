@@ -15,7 +15,7 @@ $(document).ready(function()
         {
             console.log('The input number');
             console.log(num);
-            countUp(num);
+            countUp(num); //Function for count up incrementally
         }
 
         else
@@ -26,5 +26,14 @@ $(document).ready(function()
             alert("Opps!! You entered the wrong number. Please enter whole number.!!");
         }
     });
+// Restart Button.
+
+    $('#restart').on('click', function ()
+    {
+        var num = $("#number-input").val();
+        document.getElementById('displayed-number').innerHTML = "0"; // start from 0
+        countUp(num);
+    });
 
 }
+
