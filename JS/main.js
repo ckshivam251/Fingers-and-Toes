@@ -26,6 +26,8 @@ $(document).ready(function()
             alert("Opps!! You entered the wrong number. Please enter whole number.!!");
         }
     });
+
+
 // Restart Button.
 
     $('#restart').on('click', function ()
@@ -35,5 +37,18 @@ $(document).ready(function()
         countUp(num);
     });
 
+// Reset Button.
+    $('#reset').on('click',function ()
+    {
+        removeIntervals();// Will Remove all old Intervals
+        document.getElementById('number-input').value = "";
+        document.getElementById('displayed-number').innerHTML = "0";
+        $('#fingers-block').css("color", "#555");
+        $('#toes-block').css("color","#555");
+        $('#toes-block').css("background-color", "transparent");
+        $('#fingers-block').css("background-color", "transparent");
+    });
+
+    
 }
 
