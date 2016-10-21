@@ -65,4 +65,14 @@ $(document).ready(function() {
             console.log('interval called');
             var x = startingNumer++;
             console.log(x);
-
+            if (x < inputNumber)
+            {
+                // will check if it is divisible  by 5 and 3.
+                if (x % 5 === 0 && x % 3 === 0)
+                {
+                    $('#fingers-block').css("background-color", "#5f7db3");
+                    $('#fingers-block').css("color","white");
+                    $('#toes-block').css("background-color","#5f7db3");
+                    $('#toes-block').css("color","white");
+                    displayedNumber.innerHTML = x.toString();
+                }
