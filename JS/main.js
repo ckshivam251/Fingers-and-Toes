@@ -6,7 +6,7 @@ $(document).ready(function() {
 // Starts the timer when the button is pressed
 
     $("#start").on('click', function () {
-        //The number inputed by the user is a whole number.
+        //The number entered by the user is a whole number.
         var num = $('#number-input').val();
 
         if ((parseFloat(num) === parseInt(num))) {
@@ -16,7 +16,7 @@ $(document).ready(function() {
         }
 
         else {
-            //The number inputed by the user is not a whole number.
+            //The number entered by the user is not a whole number.
             //Display the error alert!
 
             alert("Opps!! You entered the wrong number. Please enter whole number.!!");
@@ -61,14 +61,14 @@ $(document).ready(function() {
     function countUp(inputNumber)
     {
         removeIntervals();
-        var startingNumer = 1;
+        var startingNumber = 1;
         var displayedNumber = document.getElementById('displayed-number');
         //A function to be executed every delay milliseconds. We need 1sec delay so we will use 1000 milliseconds.
         var id = setInterval(function()
         {
             console.log(id);
             console.log('interval called');
-            var x = startingNumer++;
+            var x = startingNumber++;
             console.log(x);
             // If Condition for  x is lessthen Inputnumber
             if (x < inputNumber)
